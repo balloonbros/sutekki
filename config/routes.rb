@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ideas_tags
+
   resources :tags
 
   resources :ideas

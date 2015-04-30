@@ -1,9 +1,8 @@
 class CreateIdeasTags < ActiveRecord::Migration
   def change
     create_table :ideas_tags do |t|
-      t.integer :idea_id
-      t.integer :tag_id
-      t.boolean :published
+      t.belongs_to :idea, index: true
+      t.belongs_to :tag, index: true
 
       t.timestamps null: false
     end

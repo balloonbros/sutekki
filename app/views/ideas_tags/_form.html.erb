@@ -1,0 +1,12 @@
+<%= simple_form_for(@ideas_tag) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :idea_id %>
+    <%= f.input :tag_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,3 +1,4 @@
 class Tag < ActiveRecord::Base
-  has_and_belongs_to_many :ideas
+  has_many :ideas_tags
+  has_many :ideas, through: :ideas_tags
 end
