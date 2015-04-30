@@ -13,6 +13,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
 
+gem "figaro"
+
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
