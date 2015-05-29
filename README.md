@@ -1,4 +1,5 @@
 == README
+[![Build Status](https://drone.io/github.com/balloonbros/wiki-tool/status.png)](https://drone.io/github.com/balloonbros/wiki-tool/latest)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
