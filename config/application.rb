@@ -22,5 +22,13 @@ module Mark0
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.generators do |g|
+      g.helper false
+      g.jbuilder false
+      g.view_specs false
+      g.helper_specs false
+      g.test_framework 'rspec'
+    end
   end
 end
