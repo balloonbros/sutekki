@@ -5,10 +5,6 @@
   <%= @label.title %>
 </p>
 
-<p>
-  <strong>Published:</strong>
-  <%= @label.published %>
-</p>
-
-<%= link_to 'Edit', edit_label_path(@label) %> |
-<%= link_to 'Back', labels_path %>
+<% @label.ideas.each do |ideas| %>
+  <%= link_to ideas.body, idea_path(ideas) %>
+<% end %>
