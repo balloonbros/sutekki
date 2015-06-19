@@ -95,7 +95,8 @@ select {
   }
 }
 
- a {
+
+ a.botton {
   margin: 0 auto 50px;
   display: block;
   padding: 10px 0;
