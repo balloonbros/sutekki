@@ -20,6 +20,7 @@ class IdeasController < ApplicationController
 
   # GET /ideas/1/edit
   def edit
+    @labels = Label.all
   end
 
   # POST /ideas

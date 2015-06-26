@@ -22,6 +22,14 @@
 
   <input type="hidden" name="published" value="1">
 
+  <div class="field">
+    <% @labels.each do |label| %>
+      <% checked = @idea.labels.any? {|has_label| has_label.id == label.id} %>
+      <%= check_box :ideas_tag, label.id, {checked: checked}, label.id %>: <%= label.title %>
+    <% end %>
+  </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
