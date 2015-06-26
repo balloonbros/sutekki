@@ -129,7 +129,12 @@ select {
 
 .post {
   width: 400px;
-  margin: 10px auto;
+  margin: 0 auto 20px;
+  text-align: left;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 1px rgba(0,0,0,.04);
 }
 
 .new-idea {
