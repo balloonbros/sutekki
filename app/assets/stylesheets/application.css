@@ -109,7 +109,8 @@ select {
 
 
  a.botton,
- input[type="submit"] {
+ input[type="submit"],
+ .post {
   margin: 30px auto;
   display: block;
   padding: 10px 0;
