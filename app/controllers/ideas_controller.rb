@@ -10,6 +10,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    @labels = Label.all
   end
 
   # GET /ideas/new
