@@ -4,7 +4,7 @@
 
 <%= link_to 'New Idea', new_idea_path, :class => "add" %>
 
-<div class="">
+<div class="post">
   <% @ideas.each do |idea| %>
     <%= idea.body %>
     <% idea.labels.each do |label|  %>

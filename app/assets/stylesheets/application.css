@@ -127,6 +127,11 @@ select {
   box-sizing: border-box;
 }
 
+.post {
+  width: 400px;
+  margin: 10px auto;
+}
+
 .new-idea {
   height: 300px;
   width: 800px;
