@@ -6,6 +6,7 @@
   <tbody>
     <% @ideas.each do |idea| %>
       <tr>
+        <td><%= idea.title %></td>
         <td><%= idea.body %></td>
         <td>
         <% idea.labels.each do |label|  %>

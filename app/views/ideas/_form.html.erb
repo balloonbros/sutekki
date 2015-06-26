@@ -12,12 +12,17 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
     <%= f.label :body %><br>
     <%= f.text_area :body %>
   </div>
-
-  <input type="hidden" name="published" value="1">
-
+  <div class="field">
+    <%= f.label :published %><br>
+    <%= f.check_box :published %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
