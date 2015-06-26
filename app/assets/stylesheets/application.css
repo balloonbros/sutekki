@@ -127,6 +127,10 @@ select {
   box-sizing: border-box;
 }
 
+.post-list {
+  
+}
+
 .post {
   width: 400px;
   margin: 0 auto 20px;
@@ -135,6 +139,7 @@ select {
   padding: 20px;
   border-radius: 6px;
   box-shadow: 0 1px rgba(0,0,0,.04);
+  list-style: none;
 }
 
 .new-idea {
