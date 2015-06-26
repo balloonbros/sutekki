@@ -15,7 +15,7 @@ body {
   font-size: 40px;
 }
 
-input[type="text"], input[type="password"], input[type="tel"],select {
+input[type="text"], input[type="password"], input[type="tel"],select,textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   color: #444;
@@ -111,4 +111,9 @@ select {
   border-radius: 3px;
   border: none;
   box-sizing: border-box;
+}
+
+.new-idea {
+  height: 300px;
+  width: 800px;
 }
