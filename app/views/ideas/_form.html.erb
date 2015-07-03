@@ -25,7 +25,7 @@
   <div class="field">
     <% @labels.each do |label| %>
       <% checked = @idea.has_label? label.id %>
-      <%= check_box :ideas_tag, label.id, {checked: checked}, label.id %>: <%= label.title %>
+      <%= check_box :ideas_label, label.id, {checked: checked}, label.id %>: <%= label.title %>
     <% end %>
   </div>
 

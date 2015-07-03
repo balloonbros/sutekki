@@ -41,6 +41,10 @@ class IdeasController < ApplicationController
   # PATCH/PUT /ideas/1
   # PATCH/PUT /ideas/1.json
   def update
+    @idea.labels.destroy_all
+    label_params.each do |label|
+      IdeasLabel.find_or_create_by(idea_id: @idea.id, label_id: label[1]) if label[1].to_i > 0
+    end
     respond_to do |format|
       if @idea.update(idea_params)
         format.html { redirect_to @idea, notice: 'Idea was successfully updated.' }
@@ -71,6 +75,10 @@ class IdeasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
       params.require(:idea).permit(:title, :body, :published)
+    end
+
+    def label_params
+      params[:ideas_label]
     end
 
     def set_labels
