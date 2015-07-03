@@ -7,6 +7,7 @@
 <ul class="post-list">
   <% @ideas.each do |idea| %>
     <li class="post">
+      <%= idea.title %>
       <%= idea.body %>
       <% idea.labels.each do |label|  %>
         <%= link_to label.title, label_path(label)  %>

@@ -12,10 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.text_area :body, :class => "new-idea" %>
+    <div>
+      <%= f.label :title %><br>
+      <%= f.text_field :title, :class => "new-idea-title" %>
+    </div>
+    <div>
+      <%= f.label :body %><br>
+      <%= f.text_area :body, :class => "new-idea-body" %>
+    </div>
   </div>
 
   <input type="hidden" name="published" value="1">
+
+  <div class="field">
+    <% @labels.each do |label| %>
+      <% checked = @idea.has_label? label.id %>
+      <%= check_box :ideas_tag, label.id, {checked: checked}, label.id %>: <%= label.title %>
+    <% end %>
+  </div>
+
 
   <div class="actions">
     <%= f.submit %>

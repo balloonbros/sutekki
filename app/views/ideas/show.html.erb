@@ -1,9 +1,37 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Title:</strong>
+  <%= @idea.title %>
+</p>
+
+<p>
   <strong>Body:</strong>
   <%= @idea.body %>
 </p>
+
+<p>
+  <strong>Published:</strong>
+  <%= @idea.published %>
+</p>
+
+<div>
+  <p>タグ一覧</p>
+  <ul>
+    <% @labels.each do |label| %>
+      <li><%= label.title %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <p>関連するタグ</p>
+  <ul>
+    <% @idea.labels.each do |label| %>
+      <li><%= label.title %></li>
+    <% end %>
+  </ul>
+</div>
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>

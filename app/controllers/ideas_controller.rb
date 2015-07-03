@@ -1,10 +1,11 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
+  before_action :set_labels
 
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    @ideas = Idea.all.order(id: :desc)
   end
 
   # GET /ideas/1
@@ -70,5 +71,9 @@ class IdeasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
       params.require(:idea).permit(:title, :body, :published)
+    end
+
+    def set_labels
+      @labels = Label.all
     end
 end

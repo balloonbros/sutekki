@@ -27,7 +27,6 @@ input[type="text"], input[type="password"], input[type="tel"],select,textarea {
   -moz-appearance: none;
   color: #444;
   font-size: 14px;
-  height: 46px;
   padding: 10px;
   border: 1px solid #d1d1d1;
   border-radius: 6px;
@@ -128,7 +127,7 @@ select {
 }
 
 .post-list {
-  
+
 }
 
 .post {
@@ -142,7 +141,11 @@ select {
   list-style: none;
 }
 
-.new-idea {
+.new-idea-title {
+  width: 800px;
+}
+
+.new-idea-body {
   height: 300px;
   width: 800px;
 }
