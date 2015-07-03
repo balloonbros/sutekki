@@ -127,18 +127,27 @@ select {
 }
 
 .post-list {
+  max-width: 800px;
+  text-align: left;
+  margin: 0 auto 30px;
+  border: 1px solid #e4eaef;
+  border-radius: 6px;
+  background-color: #fff;
+}
 
+.post-list li:last-child {
+  border: none;
 }
 
 .post {
-  width: 400px;
-  margin: 0 auto 20px;
-  text-align: left;
-  background-color: #fff;
   padding: 20px;
-  border-radius: 6px;
-  box-shadow: 0 1px rgba(0,0,0,.04);
   list-style: none;
+  border-bottom: 1px solid #e4eaef;
+}
+
+.post-title {
+  font-weight: bold;
+
 }
 
 .new-idea-title {
