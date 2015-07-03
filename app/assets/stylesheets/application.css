@@ -147,7 +147,16 @@ select {
 
 .post-title {
   font-weight: bold;
+}
 
+.action {
+  margin-top: 10px;
+}
+
+.action a {
+  color: #ccc;
+  text-decoration: none;
+  margin-right: 10px;
 }
 
 .new-idea-title {

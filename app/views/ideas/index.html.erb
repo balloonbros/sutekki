@@ -7,14 +7,16 @@
 <ul class="post-list">
   <% @ideas.each do |idea| %>
     <li class="post">
-      <p class="post-title"><%= idea.title %></p>
-      <p><%= simple_format(h(idea.body))  %></p>
+      <div class="post-title"><%= idea.title %></div>
+      <div><%= simple_format(h(idea.body))  %></div>
       <% idea.labels.each do |label|  %>
         <%= link_to label.title, label_path(label)  %>
       <% end %>
-      <%= link_to 'Show', idea %></td>
-      <%= link_to 'Edit', edit_idea_path(idea) %></td>
-      <%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <div class="action">
+        <%= link_to '', idea, class: "fa fa-search" %>
+        <%= link_to '', edit_idea_path(idea), class: "fa fa-pencil" %>
+        <%= link_to '', idea, method: :delete, data: { confirm: '投稿を削除しますか?' }, class: "fa fa-trash" %>
+      </div>
     </li>
   <% end %>
 </ul>
