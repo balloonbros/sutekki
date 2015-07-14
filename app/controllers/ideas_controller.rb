@@ -29,6 +29,10 @@ class IdeasController < ApplicationController
 
     respond_to do |format|
       if @idea.save
+        notifier = Slack::Notifier.new ENV['SLACK_WEBHOOK_URL']
+        message = "[#{@idea.title}](#{ENV['SITE_URL']})\n#{@idea.body}"
+        notifier.ping Slack::Notifier::LinkFormatter.format(message)
+
         format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
         format.json { render :show, status: :created, location: @idea }
       else
