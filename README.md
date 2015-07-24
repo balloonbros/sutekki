@@ -1,6 +1,6 @@
 # Wiki tool
 
-[![Build Status](https://drone.io/github.com/balloonbros/wiki-tool/status.png)](https://drone.io/github.com/balloonbros/wiki-tool/latest)
+[![wercker status](https://app.wercker.com/status/73fe6d0c9259b332d23af03d9d43c659/m "wercker status")](https://app.wercker.com/project/bykey/73fe6d0c9259b332d23af03d9d43c659)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
