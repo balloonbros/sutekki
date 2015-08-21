@@ -40,6 +40,10 @@ class IdeasController < ApplicationController
           notifier.ping Slack::Notifier::LinkFormatter.format(message)
         end
 
+        label_params.each do |label|
+          IdeasLabel.find_or_create_by(idea_id: @idea.id, label_id: label[1]) if label[1].to_i > 0
+        end
+
         format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
         format.json { render :show, status: :created, location: @idea }
       else
