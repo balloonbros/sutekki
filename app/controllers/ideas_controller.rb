@@ -5,7 +5,11 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all.order(id: :desc)
+    @ideas = if params.has_key?(:closed)
+       Idea.disabled.order(id: :desc)
+    else
+       Idea.published.order(id: :desc)
+    end
   end
 
   # GET /ideas/1
@@ -26,12 +30,19 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(idea_params)
+    @idea.published = true
 
     respond_to do |format|
       if @idea.save
-        notifier = Slack::Notifier.new ENV['SLACK_WEBHOOK_URL']
-        message = "[#{@idea.title}](#{ENV['SITE_URL']})\n#{@idea.body}"
-        notifier.ping Slack::Notifier::LinkFormatter.format(message)
+        if ENV['SLACK_WEBHOOK_URL'].present?
+          notifier = Slack::Notifier.new ENV['SLACK_WEBHOOK_URL']
+          message = "[#{@idea.title}](#{ENV['SITE_URL']})\n#{@idea.body}"
+          notifier.ping Slack::Notifier::LinkFormatter.format(message)
+        end
+
+        label_params.each do |label|
+          IdeasLabel.find_or_create_by(idea_id: @idea.id, label_id: label[1]) if label[1].to_i > 0
+        end
 
         format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
         format.json { render :show, status: :created, location: @idea }
@@ -63,7 +74,7 @@ class IdeasController < ApplicationController
   # DELETE /ideas/1
   # DELETE /ideas/1.json
   def destroy
-    @idea.destroy
+    @idea.disable
     respond_to do |format|
       format.html { redirect_to ideas_url, notice: 'Idea was successfully destroyed.' }
       format.json { head :no_content }
