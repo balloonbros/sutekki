@@ -5,7 +5,11 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all.order(id: :desc)
+    @ideas = if params.has_key?(:closed)
+       Idea.disabled.order(id: :desc)
+    else
+       Idea.published.order(id: :desc)
+    end
   end
 
   # GET /ideas/1
@@ -26,6 +30,7 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(idea_params)
+    @idea.published = true
 
     respond_to do |format|
       if @idea.save
@@ -63,7 +68,7 @@ class IdeasController < ApplicationController
   # DELETE /ideas/1
   # DELETE /ideas/1.json
   def destroy
-    @idea.destroy
+    @idea.disable
     respond_to do |format|
       format.html { redirect_to ideas_url, notice: 'Idea was successfully destroyed.' }
       format.json { head :no_content }
