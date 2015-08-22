@@ -1,4 +1,4 @@
-# Stekki
+# Sutekki
 
 [![wercker status](https://app.wercker.com/status/73fe6d0c9259b332d23af03d9d43c659/m "wercker status")](https://app.wercker.com/project/bykey/73fe6d0c9259b332d23af03d9d43c659)
 
