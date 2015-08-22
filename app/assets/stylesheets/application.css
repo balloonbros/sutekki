@@ -139,6 +139,10 @@ select {
   background-color: #fff;
 }
 
+.close {
+  color: #ccc;
+}
+
 .post-list li:last-child {
   border: none;
 }

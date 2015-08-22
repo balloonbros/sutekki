@@ -12,7 +12,11 @@
 <p class="mg-b-20">open・<a href="ideas?closed=1">closed</a></p>
 <% end %>
 
+<% if params.has_key?(:closed) %>
+<ul class="post-list close">
+<% else %>
 <ul class="post-list">
+<% end %>
   <% @ideas.each do |idea| %>
     <li class="post">
       <div class="post-title"><%= idea.title %></div>
