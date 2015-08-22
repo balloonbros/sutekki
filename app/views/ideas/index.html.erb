@@ -5,11 +5,11 @@
 <%= link_to 'New Idea', new_idea_path, :class => "add" %>
 
 <% if params.has_key?(:closed) %>
-<h2 style="margin-bottom: 20px;">Closed</h2>
-<p style="margin-bottom: 20px;"><a href="ideas">open</a>・closed</p>
+<h2 class="mg-b-20">Closed</h2>
+<p class="mg-b-20"><a href="ideas">open</a>・closed</p>
 <% else %>
-<h2 style="margin-bottom: 20px;">Open</h2>
-<p style="margin-bottom: 20px;">open・<a href="ideas?closed=1">closed</a></p>
+<h2 class="mg-b-20">Open</h2>
+<p class="mg-b-20">open・<a href="ideas?closed=1">closed</a></p>
 <% end %>
 
 <ul class="post-list">
