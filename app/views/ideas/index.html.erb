@@ -27,7 +27,11 @@
       <div class="action">
         <%= link_to '', idea, class: "fa fa-search" %>
         <%= link_to '', edit_idea_path(idea), class: "fa fa-pencil" %>
+        <% if params.has_key?(:closed) %>
+        <%= link_to '', idea, method: :delete, data: { confirm: 'Reopenしますか?' }, class: "fa fa-undo" %>
+        <% else %>
         <%= link_to '', idea, method: :delete, data: { confirm: 'Closeしますか?' }, class: "fa fa-trash" %>
+        <% end %>
       </div>
     </li>
   <% end %>
