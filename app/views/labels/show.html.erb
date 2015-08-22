@@ -8,3 +8,5 @@
 <% @label.ideas.each do |ideas| %>
   <%= link_to ideas.body, idea_path(ideas) %>
 <% end %>
+
+<%= link_to 'Back', labels_path %>
