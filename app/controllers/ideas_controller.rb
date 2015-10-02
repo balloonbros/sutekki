@@ -35,9 +35,14 @@ class IdeasController < ApplicationController
     respond_to do |format|
       if @idea.save
         if ENV['SLACK_WEBHOOK_URL'].present?
-          notifier = Slack::Notifier.new ENV['SLACK_WEBHOOK_URL']
-          message = "[#{@idea.title}](#{ENV['SITE_URL']})\n#{@idea.body}"
-          notifier.ping Slack::Notifier::LinkFormatter.format(message)
+          slack = Slack::Incoming::Webhooks.new ENV['SLACK_WEBHOOK_URL']
+          attachments = [{
+            title: @idea.title,
+            title_link: ENV['SITE_URL'],
+            text: @idea.body,
+            color: "#7CD197"
+          }]
+          slack.post "New Post!", attachments: attachments
         end
 
         label_params.each do |label|
