@@ -8,6 +8,16 @@ RSpec.describe Idea, type: :model do
     expect(Idea.reflect_on_association(:labels).macro).to be == :has_and_belongs_to_many
   end
 
+  it "is invalid without a title" do
+    idea = build(:idea, title: "", body: "body")
+    expect(idea).to be_invalid
+  end
+
+  it "is invalid without a body" do
+    idea = build(:idea, title: "title", body: "")
+    expect(idea).to be_invalid
+  end
+
   describe "scope" do
     it 'fetch the published idea' do
       expect(Idea.published).to eq [published_idea]

@@ -1,6 +1,9 @@
 class Idea < ActiveRecord::Base
   has_and_belongs_to_many :labels
 
+  validates :title, presence: true
+  validates :body, presence: true
+
   scope :published, -> { where(published: true) }
   scope :disabled, -> { where(published: false) }
 
