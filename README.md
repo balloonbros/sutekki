@@ -1,6 +1,6 @@
 # Sutekki
 
-[![wercker status](https://app.wercker.com/status/73fe6d0c9259b332d23af03d9d43c659/m "wercker status")](https://app.wercker.com/project/bykey/73fe6d0c9259b332d23af03d9d43c659)
+[![wercker status](https://app.wercker.com/status/19f939fdce34758be860c4ddb244e951/m "wercker status")](https://app.wercker.com/project/bykey/19f939fdce34758be860c4ddb244e951)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
