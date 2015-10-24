@@ -98,7 +98,7 @@ class IdeasController < ApplicationController
     end
 
     def label_params
-      params[:ideas_label]
+      params[:ideas_label] ||= []
     end
 
     def set_labels

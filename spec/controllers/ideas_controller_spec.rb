@@ -2,15 +2,17 @@ require 'rails_helper'
 
 RSpec.describe IdeasController, type: :controller do
 
-  let(:valid_attributes) {
+  let(:valid_attributes) {{
     title: "title",
     body: "body",
     published: true
-  }
+  }}
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) {{
+    title: "",
+    body: "",
+    published: true
+  }}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -83,15 +85,17 @@ RSpec.describe IdeasController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+      let(:new_attributes) {{
+        title: "update title",
+        body: "update body",
+      }}
 
       it "updates the requested idea" do
         idea = Idea.create! valid_attributes
         put :update, {:id => idea.to_param, :idea => new_attributes}, valid_session
         idea.reload
-        skip("Add assertions for updated state")
+        expect(idea[:title]).to eq(new_attributes[:title])
+        expect(idea[:body]).to eq(new_attributes[:body])
       end
 
       it "assigns the requested idea as @idea" do
@@ -127,7 +131,7 @@ RSpec.describe IdeasController, type: :controller do
       idea = Idea.create! valid_attributes
       expect {
         delete :destroy, {:id => idea.to_param}, valid_session
-      }.to change(Idea, :count).by(-1)
+      }.to change(Idea.published, :count).by(-1)
     end
 
     it "redirects to the ideas list" do
