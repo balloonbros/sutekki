@@ -24,11 +24,11 @@
 
   <div class="field">
     <div>
-      <%= f.label :状態 %><br>
+      <%= f.label :state %><br>
       <%= f.radio_button :published, '1', checked: @idea.published %>
-      <%= f.label(:published_1, "公開") %>
+      <%= f.label(:published_1, "open") %>
       <%= f.radio_button :published, '0', checked: !@idea.published %>
-      <%= f.label(:published_0, "削除") %>
+      <%= f.label(:published_0, "closed") %>
     </div>
   </div>
 
