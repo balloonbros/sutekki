@@ -22,7 +22,15 @@
     </div>
   </div>
 
-  <input type="hidden" name="published" value="1">
+  <div class="field">
+    <div>
+      <%= f.label :state %><br>
+      <%= f.radio_button :published, '1', checked: @idea.published %>
+      <%= f.label(:published_1, "open") %>
+      <%= f.radio_button :published, '0', checked: !@idea.published %>
+      <%= f.label(:published_0, "closed") %>
+    </div>
+  </div>
 
   <div class="field">
     <% @labels.each do |label| %>
