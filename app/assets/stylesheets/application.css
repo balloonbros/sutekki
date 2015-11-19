@@ -12,14 +12,22 @@ body {
 }
 
 .logo {
-  text-align: center;
-  padding: 50px 0 0;
   font-size: 40px;
+  font-family: 'Vast Shadow', cursive;
+}
+
+.logo a {
+  color: #444;
+  text-decoration: none;
 }
 
 h1 {
   margin: 20px;
   font-size: 28px;
+}
+
+.mg-b-20 {
+  margin-bottom: 20px;
 }
 
 input[type="text"], input[type="password"], input[type="tel"],select,textarea {
@@ -133,6 +141,10 @@ select {
   border: 1px solid #e4eaef;
   border-radius: 6px;
   background-color: #fff;
+}
+
+.close {
+  color: #ccc;
 }
 
 .post-list li:last-child {

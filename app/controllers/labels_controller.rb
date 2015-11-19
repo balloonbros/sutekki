@@ -28,7 +28,7 @@ class LabelsController < ApplicationController
 
     respond_to do |format|
       if @label.save
-        format.html { redirect_to @label, notice: 'Label was successfully created.' }
+        format.html { redirect_to @label, notice: 'ラベルを作成しました。' }
         format.json { render :show, status: :created, location: @label }
       else
         format.html { render :new }
