@@ -16,7 +16,7 @@
   <% @ideas.each do |idea| %>
     <li class="post">
       <div class="post-title"><%= idea.title %></div>
-      <div><%= simple_format(h(idea.body))  %></div>
+      <div><%= strip_tags markdown idea.body %></div>
       <% idea.labels.each do |label|  %>
         <%= link_to label.title, label_path(label)  %>
       <% end %>
