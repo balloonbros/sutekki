@@ -24,11 +24,15 @@
 
   <div class="field">
     <div>
-      <%= f.label :state %><br>
-      <%= f.radio_button :published, '1', checked: @idea.published %>
-      <%= f.label(:published_1, "open") %>
-      <%= f.radio_button :published, '0', checked: !@idea.published %>
-      <%= f.label(:published_0, "closed") %>
+      <% if @idea.published.nil? %>
+        <%= hidden_field_tag 'idea[published]', '1' %>
+      <% else %>
+        <%= f.label :state %><br>
+        <%= f.radio_button :published, '1', checked: @idea.published %>
+        <%= f.label(:published_1, "open") %>
+        <%= f.radio_button :published, '0', checked: !@idea.published %>
+        <%= f.label(:published_0, "closed") %>
+      <% end %>
     </div>
   </div>
 
