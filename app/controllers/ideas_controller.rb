@@ -94,7 +94,7 @@ class IdeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
-      params.require(:idea).permit(:title, :body, :published)
+      params.require(:idea).permit(:title, :body, :published, :status)
     end
 
     def label_params
