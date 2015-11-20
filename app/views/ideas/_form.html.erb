@@ -34,9 +34,7 @@
 
   <div class="field">
     <div>
-      <% if @idea.published.nil? %>
-        <%= hidden_field_tag 'idea[published]', '1' %>
-      <% else %>
+      <% unless @idea.published.nil? %>
         <%= f.label :published %><br>
         <%= f.radio_button :published, '1', checked: @idea.published %>
         <%= f.label(:published_1, "open") %>
