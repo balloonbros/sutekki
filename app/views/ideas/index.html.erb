@@ -6,10 +6,10 @@
 
 <% if params.has_key?(:closed) %>
 <h2 style="margin-bottom: 20px;">Closed</h2>
-<p style="margin-bottom: 20px;"><a href="ideas">open</a>・closed</p>
+<p style="margin-bottom: 20px;"><%= link_to 'open', ideas_path %>・closed</p>
 <% else %>
 <h2 style="margin-bottom: 20px;">Open</h2>
-<p style="margin-bottom: 20px;">open・<a href="ideas?closed=1">closed</a></p>
+<p style="margin-bottom: 20px;">open・<%= link_to 'closed', ideas_path(closed: 1) %></p>
 <% end %>
 
 <ul class="post-list">
