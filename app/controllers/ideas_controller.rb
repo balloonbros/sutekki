@@ -5,11 +5,7 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = if params.has_key?(:closed)
-       Idea.disabled.order(id: :desc)
-    else
-       Idea.published.order(id: :desc)
-    end
+    @ideas = Idea.where(search_params).order(id: :desc)
   end
 
   # GET /ideas/1
@@ -90,6 +86,13 @@ class IdeasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_idea
       @idea = Idea.find(params[:id])
+    end
+
+    def search_params
+      query = params.permit(:published, :status)
+      query[:published] = \
+        ActiveRecord::Type::Boolean.new.type_cast_from_user(request.query_parameters[:published]) unless query[:published].nil?
+      query
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
