@@ -16,3 +16,7 @@ deploy:
     - script:
       name: Update database
       code: heroku run rake db:migrate --app $HEROKU_APP_NAME
+  after-steps:
+    - wantedly/pretty-slack-notify:
+      webhook_url: $SLACK_WEBHOOK_URL
+      channel: general
