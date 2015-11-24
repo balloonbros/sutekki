@@ -35,6 +35,18 @@ RSpec.describe User, type: :model do
     duplicate_user = user.dup
     duplicate_user.email = user.email.upcase
     user.save
-    expect(duplicate_user.valid?).to be false
+    expect(duplicate_user).to be_invalid
+  end
+
+  it "password be present (nonblank)" do
+    user = build(:user)
+    user.password = user.password_confirmation = " " * 8
+    expect(user).to be_invalid
+  end
+
+  it "password have a minimum length" do
+    user = build(:user)
+    user.password = user.password_confirmation = "a" * 7
+    expect(user).to be_invalid
   end
 end
