@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :user do
-    name "MyString"
-email "MyString"
-status ""
+    name "sutekki"
+    sequence(:email) { |n| "person#{n}@example.com" }
+    status 0
   end
-
 end
