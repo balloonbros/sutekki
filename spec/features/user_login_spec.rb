@@ -1,23 +1,27 @@
 require 'rails_helper'
 
-RSpec.describe "home page", :type => :feature do
-  it "displays the user's name after successful login" do
-    user = create(:user)
+RSpec.describe "Log in", :type => :feature do
+  let(:user) { create(:user) }
+
+  before do
     visit "/login"
     fill_in "session[email]", :with => user.email
     fill_in "session[password]", :with => user.password
     click_button "Log in"
-
-    has_text?(user.name)
   end
 
-  it "not displays the link to login after successful login" do
-    user = create(:user)
-    visit "/login"
-    fill_in "session[email]", :with => user.email
-    fill_in "session[password]", :with => user.password
-    click_button "Log in"
+  it "displays the user's name after successful login" do
+    expect(page).to have_content(user.name)
+  end
 
-    has_link?("login")
+  it "verifies the link after successful login" do
+    expect(page).not_to have_link("Log in")
+    expect(page).to have_link("Log out")
+  end
+
+  it "verifies the link after logout" do
+    page.driver.submit :delete, logout_path, {}
+    expect(page).to have_link("Log in")
+    expect(page).not_to have_link("Log out")
   end
 end
