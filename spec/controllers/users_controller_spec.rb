@@ -43,21 +43,19 @@ RSpec.describe UsersController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new User" do
-        expect {
-          post :create, {:user => valid_attributes}, valid_session
-        }.to change(User, :count).by(1)
-      end
+      subject { post :create, {:user => valid_attributes}, valid_session }
 
-      it "assigns a newly created user as @user" do
-        post :create, {:user => valid_attributes}, valid_session
-        expect(assigns(:user)).to be_a(User)
-        expect(assigns(:user)).to be_persisted
+      it "creates a new User" do
+        expect { subject }.to change(User, :count).by(1)
       end
 
       it "redirects to the created user" do
+        expect(subject).to redirect_to(User.last)
+      end
+
+      it "loged in after create" do
         post :create, {:user => valid_attributes}, valid_session
-        expect(response).to redirect_to(User.last)
+        expect(session[:user_id]).not_to be_nil
       end
     end
 
