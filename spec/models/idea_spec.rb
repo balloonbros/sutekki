@@ -18,6 +18,11 @@ RSpec.describe Idea, type: :model do
     expect(idea).to be_invalid
   end
 
+  it "is invalid without a user_id" do
+    idea = build(:idea, title: "title", body: "body", user_id: nil)
+    expect(idea).to be_invalid
+  end
+
   describe "scope" do
     it 'fetch the published idea' do
       expect(Idea.published).to eq [published_idea]
