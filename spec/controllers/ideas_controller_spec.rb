@@ -14,14 +14,25 @@ RSpec.describe IdeasController, type: :controller do
     published: true
   }}
 
+  let(:idea_attributes) {{
+    title: "title",
+    body: "body",
+    user_id: create(:user).id,
+    published: true
+  }}
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # IdeasController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before do
+    log_in create(:user)
+  end
+
   describe "GET #index" do
     it "assigns all ideas as @ideas" do
-      idea = Idea.create! valid_attributes
+      idea = Idea.create! idea_attributes
       get :index, {}, valid_session
       expect(assigns(:ideas)).to eq([idea])
     end
@@ -29,7 +40,7 @@ RSpec.describe IdeasController, type: :controller do
 
   describe "GET #show" do
     it "assigns the requested idea as @idea" do
-      idea = Idea.create! valid_attributes
+      idea = Idea.create! idea_attributes
       get :show, {:id => idea.to_param}, valid_session
       expect(assigns(:idea)).to eq(idea)
     end
@@ -44,7 +55,7 @@ RSpec.describe IdeasController, type: :controller do
 
   describe "GET #edit" do
     it "assigns the requested idea as @idea" do
-      idea = Idea.create! valid_attributes
+      idea = Idea.create! idea_attributes
       get :edit, {:id => idea.to_param}, valid_session
       expect(assigns(:idea)).to eq(idea)
     end
@@ -91,7 +102,7 @@ RSpec.describe IdeasController, type: :controller do
       }}
 
       it "updates the requested idea" do
-        idea = Idea.create! valid_attributes
+        idea = Idea.create! idea_attributes
         put :update, {:id => idea.to_param, :idea => new_attributes}, valid_session
         idea.reload
         expect(idea[:title]).to eq(new_attributes[:title])
@@ -99,13 +110,13 @@ RSpec.describe IdeasController, type: :controller do
       end
 
       it "assigns the requested idea as @idea" do
-        idea = Idea.create! valid_attributes
+        idea = Idea.create! idea_attributes
         put :update, {:id => idea.to_param, :idea => valid_attributes}, valid_session
         expect(assigns(:idea)).to eq(idea)
       end
 
       it "redirects to the idea" do
-        idea = Idea.create! valid_attributes
+        idea = Idea.create! idea_attributes
         put :update, {:id => idea.to_param, :idea => valid_attributes}, valid_session
         expect(response).to redirect_to(idea)
       end
@@ -113,13 +124,13 @@ RSpec.describe IdeasController, type: :controller do
 
     context "with invalid params" do
       it "assigns the idea as @idea" do
-        idea = Idea.create! valid_attributes
+        idea = Idea.create! idea_attributes
         put :update, {:id => idea.to_param, :idea => invalid_attributes}, valid_session
         expect(assigns(:idea)).to eq(idea)
       end
 
       it "re-renders the 'edit' template" do
-        idea = Idea.create! valid_attributes
+        idea = Idea.create! idea_attributes
         put :update, {:id => idea.to_param, :idea => invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
@@ -128,14 +139,14 @@ RSpec.describe IdeasController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested idea" do
-      idea = Idea.create! valid_attributes
+      idea = Idea.create! idea_attributes
       expect {
         delete :destroy, {:id => idea.to_param}, valid_session
       }.to change(Idea.published, :count).by(-1)
     end
 
     it "redirects to the ideas list" do
-      idea = Idea.create! valid_attributes
+      idea = Idea.create! idea_attributes
       delete :destroy, {:id => idea.to_param}, valid_session
       expect(response).to redirect_to(ideas_url)
     end
