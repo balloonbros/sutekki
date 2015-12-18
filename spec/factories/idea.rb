@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :idea do
     title 'hello'
     body 'world'
+    user_id { create(:user).id }
 
     trait :published do
       published true
