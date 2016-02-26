@@ -18,6 +18,10 @@ RSpec.describe UsersController, type: :controller do
   describe "GET #show" do
     let(:user) { create(:user) }
 
+    before do
+      log_in user
+    end
+
     it "assigns the requested user as @user" do
       get :show, {:id => user.id}
       expect(assigns(:user)).to eq(user)
