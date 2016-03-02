@@ -1,7 +1,6 @@
-box: mwallasch/docker-ruby-node
+box: phusion/passenger-ruby22
 build:
   steps:
-    - gem install bundler
     - bundle-install
     - script:
       name: rspec
