@@ -1,6 +1,7 @@
 box: mwallasch/docker-ruby-node
 build:
   steps:
+    - gem install bundler
     - bundle-install
     - script:
       name: rspec
