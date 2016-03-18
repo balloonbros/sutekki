@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :users
   resources :labels
   resources :ideas
+  resources :favorites, only: %i(create destroy)
 end
