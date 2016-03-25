@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 8 }
   has_secure_password
   has_many :ideas
+  has_many :reactions
 
   def remember
     self.remember_token = User.new_token
