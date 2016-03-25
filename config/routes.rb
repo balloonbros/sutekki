@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'reactions/create'
+
+  get 'reactions/destroy'
+
   root 'ideas#index'
   get 'sessions/new'
   get 'signup'  => 'users#new'
