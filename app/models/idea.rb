@@ -1,6 +1,7 @@
 class Idea < ActiveRecord::Base
   has_and_belongs_to_many :labels
   belongs_to :user
+  has_many :reactions
 
   validates :title, presence: true
   validates :body, presence: true
