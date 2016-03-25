@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  post 'reactions/create'
-  delete 'reactions/destroy'
-
   root 'ideas#index'
   get 'sessions/new'
   get 'signup'  => 'users#new'
@@ -11,4 +8,5 @@ Rails.application.routes.draw do
   resources :users
   resources :labels
   resources :ideas
+  resources :reactions, only: %i(create destroy)
 end
