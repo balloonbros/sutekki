@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'reactions/create'
-
-  get 'reactions/destroy'
+  post 'reactions/create'
+  delete 'reactions/destroy'
 
   root 'ideas#index'
   get 'sessions/new'
