@@ -1,5 +1,27 @@
-$gray-medium-light: #eaeaea;
-$state-danger-text: #ff0000;
+/* color */
+
+$text: #d9dade;
+$background-a: #1a1b22;
+$background-b: #151515;
+$background-c: #23252f;
+$header-background: #31323e;
+$form-background: #252631;
+$form-focus: #444a84;
+$botton-Green: #1b9551;
+$botton-blue: #38408f;
+$link: #e27b71;
+$strong: #00bce4;
+$gray-line: #494a4e;
+
+/* mixin */
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* default */
 
 html,body,p,h1,h2,h3,h4,ul,li,ol {
   margin: 0;
@@ -7,11 +29,10 @@ html,body,p,h1,h2,h3,h4,ul,li,ol {
 }
 
 body {
-  color: #444;
+  color: $text;
   background: #F9FAFD;
   text-align: center;
   padding-top: 40px;
-  color: rgba(0,0,0,.7);
 }
 
 .logo {
@@ -171,22 +192,6 @@ select {
   width: 800px;
 }
 
-@mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
-}
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  border: 1px solid #999;
-  background-color: $gray-medium-light;
-  @include box_sizing;
-}
-
 #error_explanation {
   color: red;
   ul {
@@ -195,8 +200,16 @@ select {
   }
 }
 
+
+/* develop */
+
+.debug_dump {
+  padding: 20px;
+  background: #fff;
+}
+
 .field_with_errors {
   .form-control {
-    color: $state-danger-text;
+    color: #ff0000;
   }
 }
