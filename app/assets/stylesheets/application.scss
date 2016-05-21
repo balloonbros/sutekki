@@ -1,11 +1,13 @@
 /* color */
 
 $text: #d9dade;
-$background-a: #1a1b22;
-$background-b: #151515;
-$background-c: #23252f;
+$text-gray: #6a6b70;
+$background-normal: #1a1b22;
+$background-deep: #151515;
+$background-light: #23252f;
 $header-background: #31323e;
 $form-background: #252631;
+$form-border: #15161e;
 $form-focus: #444a84;
 $botton-Green: #1b9551;
 $botton-blue: #38408f;
@@ -15,45 +17,30 @@ $gray-line: #494a4e;
 
 /* mixin */
 
-@mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+@mixin box-sizing($type) {
+  -webkit-box-sizing:$type;
+  -moz-box-sizing:$type;
+  box-sizing:$type;
 }
 
-/* default */
+/* form */
 
-html,body,p,h1,h2,h3,h4,ul,li,ol {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  color: $text;
-  background: #F9FAFD;
-  text-align: center;
-  padding-top: 40px;
-}
-
-.logo {
-  text-align: center;
-  padding: 50px 0 0;
-  font-size: 40px;
-}
-
-h1 {
-  margin: 20px;
-  font-size: 28px;
-}
-
-input[type="text"], input[type="password"], input[type="tel"],select,textarea {
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select,
+textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
-  color: #444;
+  appearance: none;
+  color: $text;
+  background: $form-background;
+  border: 1px solid $form-border;
   font-size: 14px;
   padding: 10px;
-  border: 1px solid #d1d1d1;
-  border-radius: 6px;
+  border-radius: 4px;
+  @include box-sizing(border-box);
 }
 
 textarea {
@@ -64,13 +51,10 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: 0;
-  border: 2px #5f22ab solid;
-}
+  box-shadow:0px 0px 0px 1px $form-focus;
+  border:  1px solid $form-focus;
+  @include box-sizing(border-box);
 
-fieldset {
-  width: 300px;
-  margin: 30px auto 10px;
-  border: none;
 }
 
 .text {
@@ -84,10 +68,9 @@ select {
   position: absolute;
   z-index: 3;
   height: 50px;
-  color: #444;
+  color: $text;
   display: block;
   font-size: 14px;
-  border: 1px solid #d1d1d1;
   padding: 0 10px;
   border-radius: 6px;
 }
@@ -97,7 +80,7 @@ select {
   width: 300px;
   height: 50px;
   margin: 3px 0 10px 0;
-  background: #fff;
+  background: $form-background;
   border-radius: 6px;
   box-sizing: border-box;
   select {
@@ -117,7 +100,6 @@ select {
   z-index: 2;
   width: 40px;
   height: 50px;
-  border-left: 1px solid #d1d1d1;
   i {
     position: absolute;
     z-index: 2;
@@ -129,7 +111,6 @@ select {
     margin-left: -7px;
   }
 }
-
 
  a.botton,
  input[type="submit"],
@@ -143,11 +124,54 @@ select {
   font-size: 15px;
   text-align: center;
   text-decoration: none;
-  color: #fff;
-  background-color: #5f22ab;
+  color: $text;
+  background-color: $botton-blue;
   border-radius: 3px;
   border: none;
   box-sizing: border-box;
+}
+
+/* other */
+
+html,body,p,h1,h2,h3,h4,ul,li,ol {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: $text;
+  background: $background-normal;
+  text-align: center;
+}
+
+a {
+  color: $link;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.logo {
+  text-align: center;
+  padding: 50px 0 0;
+  font-size: 40px;
+}
+
+h1 {
+  margin: 20px;
+  font-size: 28px;
 }
 
 .post-list {
@@ -205,7 +229,7 @@ select {
 
 .debug_dump {
   padding: 20px;
-  background: #fff;
+  background: #342d3e;
 }
 
 .field_with_errors {
