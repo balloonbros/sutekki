@@ -1,20 +1,12 @@
-<h1>logo</h1>
-<h2>Sign up to Sutekki</h2>
-
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control',placeholder: 'info@example.com' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-  </div>
+<div class="container-center">
+  <h1>logo</h1>
+  <h2>Sign in to Sutekki</h2>
+  <%= form_for(:session, url: login_path) do |f| %>
+    <div><%= f.label :email %></div>
+    <div><%= f.email_field :email, class: 'form-control',placeholder: 'info@example.com' %></div>
+    <div><%= f.label :password %></div>
+    <div><%= f.password_field :password, class: 'form-control' %></div>
+    <div><%= f.submit "Log in", class: "btn btn-primary" %></div>
+  <% end %>
+  <p>New user? <%= link_to "Sign up now!", signup_path %></p>
 </div>

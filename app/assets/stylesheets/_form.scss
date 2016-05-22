@@ -1,0 +1,100 @@
+/* form */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: $text;
+  background: $form-background;
+  border: 1px solid $form-border;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 4px;
+  @include box-sizing(border-box);
+}
+
+textarea {
+  line-height: 160%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 0;
+  box-shadow:0px 0px 0px 1px $form-focus;
+  border:  1px solid $form-focus;
+  @include box-sizing(border-box);
+}
+
+select {
+  background: transparent;
+  position: absolute;
+  z-index: 3;
+  height: 50px;
+  color: $text;
+  display: block;
+  font-size: 14px;
+  padding: 0 10px;
+  border-radius: 6px;
+}
+
+.select {
+  position: relative;
+  width: 300px;
+  height: 50px;
+  margin: 3px 0 10px 0;
+  background: $form-background;
+  border-radius: 6px;
+  box-sizing: border-box;
+  select {
+    top: 0;
+    left: 0;
+    width: 300px;
+    box-sizing: border-box;
+  }
+  .arrow {
+    top: 0;
+    right: 0px;
+  }
+}
+
+.arrow {
+  position: absolute;
+  z-index: 2;
+  width: 40px;
+  height: 50px;
+  i {
+    position: absolute;
+    z-index: 2;
+    font-size:20px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    margin-top: -9px;
+    margin-left: -7px;
+  }
+}
+
+ a.botton,
+ input[type="submit"],
+ .add {
+  margin: 30px auto;
+  display: block;
+  padding: 10px 0;
+  line-height: 20px;
+  width: 140px;
+  height: 40px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: $text;
+  background-color: $botton-blue;
+  border-radius: 3px;
+  border: none;
+  box-sizing: border-box;
+}
