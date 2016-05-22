@@ -13,10 +13,22 @@ textarea {
   background: $form-background;
   border: 1px solid $form-border;
   font-size: 14px;
-  padding: 10px;
+  padding: 13px;
   border-radius: 4px;
   @include box-sizing(border-box);
 }
+
+input[type="text"]::-webkit-input-placeholder,
+input[type="email"]::-webkit-input-placeholder,
+input[type="password"]::-webkit-input-placeholder,
+input[type="tel"]::-webkit-input-placeholder,
+select::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  opacity: 0.3;
+}
+
+
+::-moz-placeholder
 
 textarea {
   line-height: 160%;

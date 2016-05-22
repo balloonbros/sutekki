@@ -1,12 +1,14 @@
-<div class="container-center">
-  <h1>logo</h1>
-  <h2>Sign in to Sutekki</h2>
-  <%= form_for(:session, url: login_path) do |f| %>
-    <div><%= f.label :email %></div>
-    <div><%= f.email_field :email, class: 'form-control',placeholder: 'info@example.com' %></div>
-    <div><%= f.label :password %></div>
-    <div><%= f.password_field :password, class: 'form-control' %></div>
-    <div><%= f.submit "Log in", class: "btn btn-primary" %></div>
-  <% end %>
-  <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-</div>
+<h1>logo</h1>
+<h2>Sign in to Sutekki</h2>
+<%= form_for(:session, url: login_path) do |f| %>
+  <div class="container-center">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control center-form',placeholder: 'info@example.com', autofocus: '' %>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control center-form' %>
+  </div>
+  <%= f.submit "サインイン", class: "btn btn-primary" %>
+<% end %>
+<p>新しく利用する？ <%= link_to "サインアップ", signup_path %></p>
+
+<p>Create by Balloonbros</p>
