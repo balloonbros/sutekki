@@ -1,0 +1,32 @@
+
+.post-list {
+  width: 200px;
+  text-align: left;
+  border: 1px solid #e4eaef;
+  border-radius: 6px;
+}
+
+.post-list li:last-child {
+  border: none;
+}
+
+.post {
+  padding: 20px;
+  list-style: none;
+  border-bottom: 1px solid #e4eaef;
+  word-break: break-all;
+}
+
+.post-title {
+  font-weight: bold;
+}
+
+.action {
+  margin-top: 10px;
+}
+
+.action a {
+  color: #ccc;
+  text-decoration: none;
+  margin-right: 10px;
+}
