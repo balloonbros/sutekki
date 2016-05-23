@@ -8,12 +8,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'layouts/header' %>
-<% flash.each do |message_type, message| %>
+  <% flash.each do |message_type, message| %>
   <div class="alert alert-<%= message_type %>"><%= message %></div>
-<% end %>
-<%= yield %>
-<%= debug(params) if Rails.env.development? %>
-<%= render 'layouts/footer' %>
+  <% end %>
+  <%= yield %>
+  <%= debug(params) if Rails.env.development? %>
 </body>
 </html>

@@ -1,5 +1,7 @@
-<h1>logo</h1>
-<h2>Sign in to Sutekki</h2>
+<header>
+  <h1>logo</h1>
+  <h2>Sign in to Sutekki</h2>
+</header>
 <%= form_for(:session, url: login_path) do |f| %>
   <div class="container-center">
     <%= f.label :email %>
@@ -7,8 +9,10 @@
     <%= f.label :password %>
     <%= f.password_field :password, class: 'form-control center-form' %>
   </div>
-  <%= f.submit "サインイン", class: "btn btn-primary" %>
+  <%= f.submit "サインイン", class: "w-214 mg-30-auto-20" %>
 <% end %>
 <p>新しく利用する？ <%= link_to "サインアップ", signup_path %></p>
 
-<p>Create by Balloonbros</p>
+<footer class="center-footer">
+  <p>Create by Balloonbros</p>
+</footer>

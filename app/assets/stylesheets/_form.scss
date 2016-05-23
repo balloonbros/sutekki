@@ -92,14 +92,12 @@ select {
   }
 }
 
- a.botton,
- input[type="submit"],
- .add {
-  margin: 30px auto;
+a.botton,
+input[type="submit"],
+.add {
   display: block;
   padding: 10px 0;
   line-height: 20px;
-  width: 140px;
   height: 40px;
   font-size: 15px;
   text-align: center;
@@ -109,4 +107,14 @@ select {
   border-radius: 3px;
   border: none;
   box-sizing: border-box;
+}
+
+/* botton margin */
+
+.mg-30-auto-20 {
+  margin: 30px auto 20px;
+}
+
+.w-214 {
+  width: 214px;
 }
