@@ -1,19 +1,19 @@
-<h1>logo</h1>
-<h2>Sign up to Sutekki</h2>
-
-<div>
-  <%= form_for(@user) do |f| %>
+<header class="center-header">
+  <h1>logo</h1>
+  <h2>Sign up to Sutekki</h2>
+</header>
+<%= form_for(@user) do |f| %>
+  <div class="container-center">
     <%= render 'shared/error_messages' %>
-<br>
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: 'form-control' %>
-<br>
-    <%= f.label :email %><br>
-    <%= f.email_field :email, class: 'form-control' %>
-<br>
-    <%= f.label :password %><br>
-    <%= f.password_field :password, class: 'form-control' %>
-<br>
-    <%= f.submit "Create my account" %>
-  <% end %>
-</div>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control center-form', autofocus: '' %>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control center-form', placeholder: 'info@example.com' %>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control center-form' %>
+  </div>
+  <%= f.submit "サインアップ", class: "w-214 mg-30-auto-20 green" %>
+<% end %>
+<footer class="center-footer">
+  <p>Create by Balloonbros</p>
+</footer>
