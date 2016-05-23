@@ -1,3 +1,15 @@
-<header>
+<header class="header">
+
+<h1>ロゴ</h1>
+
+  <% if params[:status] == '1' %>
+  <p><%= link_to 'Memo', ideas_path(request.query_parameters.merge(status: 0)) %>・Matome</p>
+  <% else %>
+  <p>Memo・<%= link_to 'Matome', ideas_path(request.query_parameters.merge(status: 1)) %></p>
+  <% end %>
+
+<%= link_to 'New Idea', new_idea_path, :class => "add blue" %>
+
+<br>
 
 </header>
