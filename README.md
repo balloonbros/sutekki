@@ -2,29 +2,44 @@
 
 [![wercker status](https://app.wercker.com/status/19f939fdce34758be860c4ddb244e951/m "wercker status")](https://app.wercker.com/project/bykey/19f939fdce34758be860c4ddb244e951)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Install
 
-Things you may want to cover:
+```
+$ git clone git@github.com:balloonbros/sutekki.git
+$ cd sutekki
+$ bundle install
+```
 
-* Ruby version
+### Database creation
 
-* System dependencies
+```
+$ bin/rake db:migrate
+```
 
-* Configuration
+### Run server
 
-* Database creation
+```
+$ bin/rails server
+```
 
-* Database initialization
+### Configuration
 
-* How to run the test suite
+Add your application configuration to your `.env` file in the root of your project:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+SITE_URL="http://localhost:3000"
+SLACK_WEBHOOK_URL=""
+```
 
-* Deployment instructions
+### How to run the test suite
 
-* ...
+```
+$ bundle exec rspec spec/
+```
 
+### Deploy to Heroku
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+```
+$ git push heroku master
+$ heroku run rake db:migrate --app HEROKU_APP_NAME
+```
