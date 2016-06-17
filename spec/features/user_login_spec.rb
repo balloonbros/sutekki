@@ -7,7 +7,7 @@ RSpec.describe "Log in", :type => :feature do
     visit "/login"
     fill_in "session[email]", :with => user.email
     fill_in "session[password]", :with => user.password
-    click_button "Log in"
+    click_button "サインイン"
   end
 
   it "displays the user's name after successful login" do
@@ -21,7 +21,7 @@ RSpec.describe "Log in", :type => :feature do
 
   it "verifies the link after logout" do
     page.driver.submit :delete, logout_path, {}
-    expect(page).to have_link("Log in")
-    expect(page).not_to have_link("Log out")
+    expect(page).to have_button("サインイン")
+    expect(page).not_to have_content("Log out")
   end
 end
