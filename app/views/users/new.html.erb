@@ -1,19 +1,19 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
-
-<div>
-  <%= form_for(@user) do |f| %>
+<header class="center-header">
+  <h1>logo</h1>
+  <h2>Sign up to Sutekki</h2>
+</header>
+<%= form_for(@user) do |f| %>
+  <div class="container-center">
     <%= render 'shared/error_messages' %>
-
     <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-
+    <%= f.text_field :name, class: 'form-control center-form', autofocus: '' %>
     <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control' %>
-
+    <%= f.email_field :email, class: 'form-control center-form', placeholder: 'info@example.com' %>
     <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
-
-    <%= f.submit "Create my account" %>
-  <% end %>
-</div>
+    <%= f.password_field :password, class: 'form-control center-form' %>
+  </div>
+  <%= f.submit "サインアップ", class: "w-214 mg-30-auto-20 green" %>
+<% end %>
+<footer class="center-footer">
+  <p>Create by Balloonbros</p>
+</footer>

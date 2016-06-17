@@ -1,0 +1,16 @@
+<ul class="post-list">
+  <% @ideas.each do |idea| %>
+    <li class="post">
+      <div class="post-title"><%= idea.title %></div>
+      <div><%= strip_tags markdown idea.body %></div>
+      <% idea.labels.each do |label|  %>
+        <%= link_to label.title, label_path(label)  %>
+      <% end %>
+      <div class="action">
+        <%= link_to '', idea, class: "fa fa-search" %>
+        <%= link_to '', edit_idea_path(idea), class: "fa fa-pencil" %>
+        <%= link_to '', idea, method: :delete, data: { confirm: '投稿を削除しますか?' }, class: "fa fa-trash" %>
+      </div>
+    </li>
+  <% end %>
+</ul>

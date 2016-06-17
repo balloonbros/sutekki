@@ -1,0 +1,51 @@
+/* default */
+
+html,body,p,h1,h2,h3,h4,ul,li,ol {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: $text;
+  background: $background-normal;
+  text-align: center;
+  font-size: 13px;
+}
+
+a {
+  color: $link;
+}
+
+.container {
+  width: 700px;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.new-idea-title {
+  width: 800px;
+}
+
+.new-idea-body {
+  height: 300px;
+  width: 800px;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}

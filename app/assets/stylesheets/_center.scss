@@ -1,0 +1,24 @@
+.center-header {
+  padding-top: 70px;
+  h2 {
+    font-weight: normal;
+  }
+}
+
+.container-center {
+  width: 320px;
+  padding-top: 15px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.center-form {
+  display: block;
+  width: 100%;
+  margin: 3px 0 13px;
+}
+
+.center-footer {
+  margin-top: 50px;
+  color: $text-gray;
+}
